@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lion_air/features/booking_flights/presentation/screens/book_flight_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -185,7 +186,15 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  featureBox('assets/img/home/book_flight.svg', 'Book Flights'),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => BookFlightTab()));
+                      },
+                      child: featureBox(
+                          'assets/img/home/book_flight.svg', 'Book Flights')),
                   featureBox(
                       'assets/img/home/booking_list.svg', 'Booking List'),
                   featureBox('assets/img/home/check_in.svg', 'Check-In'),
